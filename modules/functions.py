@@ -18,11 +18,11 @@ async def spawnmob(ctx, mydb):
     embed.add_field(name="HP", value=mobhp, inline=True)
     embed.add_field(name="Level", value="15", inline=True)
     newmessage = await ctx.send(embed=embed)
-    await newmessage.add_reaction('<:Sword:781239337815769098>')
-    return
+    #await newmessage.add_reaction('<:Sword:781239337815769098>')
+    return newmessage
 
 async def on_attack(payload,bot):
-    if payload.member != bot.user and payload.channel_id == 781229072092233748 and payload.emoji.id == 781239337815769098:
+    if payload.member != bot.user:
         channel = bot.get_channel(payload.channel_id)
         message = await channel.fetch_message(payload.message_id)
         if(message.embeds):

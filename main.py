@@ -7,6 +7,8 @@ from discord.utils import get
 from modules import functions
 from modules import mobs
 
+
+
 with open('config/config.json') as json_file:
     jsonstructure = json.load(json_file)
     for p in jsonstructure['discord']:
@@ -15,6 +17,11 @@ with open('config/config.json') as json_file:
         DBuser = p['DBuser']
         DBpasswd = p['DBpasswd']
         DBdatabase = p['DBdatabase']
+        IDChannelSpawner = p['IDChannelSpawner']
+        IDEmote = p['IDEmote']
+        NameEmote = p['NameEmote']
+
+
 
 mydb = mysql.connector.connect(
     host=DBhost,
@@ -33,14 +40,15 @@ async def on_ready():
 
 @bot.event
 async def on_raw_reaction_add(payload):
-
-    await functions.on_attack(payload,bot)
+    if payload.channel_id == IDChannelSpawner and payload.emoji.id == IDEmote:
+        await functions.on_attack(payload,bot)
     
-    return
+        return
 
 @bot.command(aliases=["t1"])
 async def test1(ctx, arg=None):
-    await functions.spawnmob(ctx, mydb)
+    newmessage = await functions.spawnmob(ctx, mydb)
+    await newmessage.add_reaction("<:" + NameEmote + ":" + str(IDEmote) + ">")
     return
 
 bot.run(token)
