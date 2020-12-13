@@ -35,18 +35,12 @@ async def on_ready():
 async def on_raw_reaction_add(payload):
 
     await functions.on_attack(payload,bot)
-    #await functions.on_attack2(payload,bot)
     
     return
 
 @bot.command(aliases=["t1"])
 async def test1(ctx, arg=None):
     await functions.spawnmob(ctx, mydb)
-    return
-
-@bot.command(aliases=["t2"])
-async def test2(ctx, arg=None):
-    await functions.spawnmob2(ctx)
     return
 
 bot.run(token)
