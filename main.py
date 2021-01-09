@@ -5,7 +5,7 @@ import mysql.connector
 from discord.ext import commands
 from discord.utils import get
 from modules import functions
-from modules import mydb
+from modules import mydatabase
 from modules import mobs
 
 with open('config/config.json') as json_file:
@@ -52,7 +52,7 @@ async def test1(ctx, arg=None):
 
 @bot.command(aliases=["syncdatabase"])
 async def syncdb(ctx, arg=None):
-    await mydb.installdb()
+    await mydatabase.installdb()
     return
 
 bot.run(token)
