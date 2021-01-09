@@ -7,8 +7,6 @@ from discord.utils import get
 from modules import functions
 from modules import mobs
 
-
-
 with open('config/config.json') as json_file:
     jsonstructure = json.load(json_file)
     for p in jsonstructure['discord']:
@@ -49,6 +47,11 @@ async def on_raw_reaction_add(payload):
 async def test1(ctx, arg=None):
     newmessage = await functions.spawnmob(ctx, mydb)
     await newmessage.add_reaction("<:" + NameEmote + ":" + str(IDEmote) + ">")
+    return
+
+@bot.command(aliases=["syncdatabase"])
+async def syncdb(ctx, arg=None):
+    await mydb.installdb()
     return
 
 bot.run(token)
