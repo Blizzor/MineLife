@@ -19,7 +19,7 @@ mydb = mysql.connector.connect(
 async def installdb():
 
     mycursor = mydb.cursor()
-    mycursor.execute("DROP TABLE mobs")
+    #mycursor.execute("DROP TABLE mobs")
     #mycursor.execute("DROP TABLE players")
     #mycursor.execute("DROP TABLE items")
     #mycursor.execute("DROP TABLE weapon")
