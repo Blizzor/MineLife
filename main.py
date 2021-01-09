@@ -5,6 +5,7 @@ import mysql.connector
 from discord.ext import commands
 from discord.utils import get
 from modules import functions
+from modules import mydb
 from modules import mobs
 
 with open('config/config.json') as json_file:
