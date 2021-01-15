@@ -1,13 +1,12 @@
 import discord
 from random import randrange
 
-async def spawnmob(ctx, mydb):
+from modules import init
+
+async def spawnmob(ctx):
     number = randrange(1,5)
     sql = "SELECT * FROM mobs WHERE id ='" + str(number) + "'"
-    mycursor = mydb.cursor()
-    mycursor.execute(sql)
-
-    myresult = mycursor.fetchall()
+    myresult = await dbcommit(sql)
     mob = myresult[0]
     mobname = mob[1]
     mobhp = mob[2]
@@ -79,3 +78,17 @@ async def on_death(message):
     embed.add_field(name="Horst", value="5 x Stone", inline=False)
     await message.channel.send(embed = embed)
     return
+
+async def dbcommit(sqlcommand):
+    try:
+        mydb = init.getdb()
+        mycursor = mydb.cursor()
+        mycursor.execute(sqlcommand)
+        return mycursor.fetchall()
+    except Exception:
+        if(not mydb.is_connected):
+            init.reconnect()
+            mydb = init.getdb()
+            mycursor = mydb.cursor()
+            mycursor.execute(sqlcommand)
+            return mycursor.fetchall()

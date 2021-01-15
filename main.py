@@ -7,30 +7,20 @@ from discord.utils import get
 from modules import functions
 from modules import mydatabase
 from modules import mobs
+from modules import init
 
-with open('config/config.json') as json_file:
-    jsonstructure = json.load(json_file)
-    for p in jsonstructure['discord']:
-        token = p['token']
-        DBhost = p['DBhost']
-        DBuser = p['DBuser']
-        DBpasswd = p['DBpasswd']
-        DBdatabase = p['DBdatabase']
-        IDChannelSpawner = p['IDChannelSpawner']
-        IDEmote = p['IDEmote']
-        NameEmote = p['NameEmote']
+intents = discord.Intents.all()
 
+token = init.config().get_token()
+DBhost = init.config().get_DBhost()
+DBuser = init.config().get_DBuser()
+DBpasswd = init.config().get_DBpasswd()
+DBdatabase = init.config().get_DBdatabase()
+IDChannelSpawner = init.config().get_IDChannelSpawner()
+IDEmote = init.config().get_IDEmote()
+NameEmote = init.config().get_NameEmote()
 
-
-mydb = mysql.connector.connect(
-    host=DBhost,
-    user=DBuser,
-    passwd=DBpasswd,
-    database=DBdatabase,
-    auth_plugin='mysql_native_password'
-)
-
-bot = commands.Bot(command_prefix='!', case_insensitive=True, help_command=None)
+bot = commands.Bot(command_prefix='!', case_insensitive=True, help_command=None, intents=intents)
 
 @bot.event
 async def on_ready():
@@ -46,7 +36,7 @@ async def on_raw_reaction_add(payload):
 
 @bot.command(aliases=["t1"])
 async def test1(ctx, arg=None):
-    newmessage = await functions.spawnmob(ctx, mydb)
+    newmessage = await functions.spawnmob(ctx)
     await newmessage.add_reaction("<:" + NameEmote + ":" + str(IDEmote) + ">")
     return
 

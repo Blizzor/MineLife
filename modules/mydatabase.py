@@ -9,6 +9,7 @@ with open('config/config.json') as json_file:
         DBpasswd = p['DBpasswd']
         DBdatabase = p['DBdatabase']
 
+
 mydb = mysql.connector.connect(
     host=DBhost,
     user=DBuser,
@@ -16,6 +17,7 @@ mydb = mysql.connector.connect(
     database=DBdatabase,
     auth_plugin='mysql_native_password'
 )
+
 async def installdb():
 
     mycursor = mydb.cursor()
