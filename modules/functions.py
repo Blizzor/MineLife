@@ -87,7 +87,8 @@ async def dbcommit(sqlcommand):
         return mycursor.fetchall()
     except Exception:
         if(not mydb.is_connected):
-            init.reconnect()
+            mydb.reconnect()
+#            init.reconnect()
             mydb = init.getdb()
             mycursor = mydb.cursor()
             mycursor.execute(sqlcommand)

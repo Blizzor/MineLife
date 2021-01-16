@@ -42,14 +42,14 @@ mydb = mysql.connector.connect(
     auth_plugin='mysql_native_password'
 )
 
-async def reconnect():
-    mydb = mysql.connector.connect(
-    host=config().get_DBhost(),
-    user=config().get_DBuser(),
-    passwd=config().get_DBpasswd(),
-    database=config().get_DBdatabase(),
-    auth_plugin='mysql_native_password'
-)
+#async def reconnect():
+#    mydb = mysql.connector.connect(
+#    host=config().get_DBhost(),
+#    user=config().get_DBuser(),
+#    passwd=config().get_DBpasswd(),
+#    database=config().get_DBdatabase(),
+#    auth_plugin='mysql_native_password'
+#)
 
 def getdb():
     return(mydb)
