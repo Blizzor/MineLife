@@ -80,16 +80,13 @@ async def on_death(message):
     return
 
 async def dbcommit(sqlcommand):
-    try:
+    mydb = init.getdb()
+    if(mydb.is_connected()):
+        print("Verbindung zur DB vorhanden")
+    else:
+        print("Verbindung zur DB verloren...wird reconnected")
+        mydb.reconnect(attempts=3, delay=5)
         mydb = init.getdb()
-        mycursor = mydb.cursor()
-        mycursor.execute(sqlcommand)
-        return mycursor.fetchall()
-    except Exception:
-        if(not mydb.is_connected):
-            mydb.reconnect()
-#            init.reconnect()
-            mydb = init.getdb()
-            mycursor = mydb.cursor()
-            mycursor.execute(sqlcommand)
-            return mycursor.fetchall()
+    mycursor = mydb.cursor()
+    mycursor.execute(sqlcommand)
+    return mycursor.fetchall()
