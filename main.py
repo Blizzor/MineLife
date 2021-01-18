@@ -36,8 +36,9 @@ async def on_raw_reaction_add(payload):
 
 @bot.command(aliases=["t1"])
 async def test1(ctx, arg=None):
-    newmessage = await functions.spawnmob(ctx)
-    await newmessage.add_reaction("<:" + NameEmote + ":" + str(IDEmote) + ">")
+    if ctx.message.channel == IDChannelSpawner:
+        newmessage = await functions.spawnmob(ctx)
+        await newmessage.add_reaction("<:" + NameEmote + ":" + str(IDEmote) + ">")
     return
 
 @bot.command(aliases=["syncdatabase"])
