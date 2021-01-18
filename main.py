@@ -36,7 +36,7 @@ async def on_raw_reaction_add(payload):
 
 @bot.command(aliases=["t1"])
 async def test1(ctx, arg=None):
-    if ctx.message.channel == IDChannelSpawner:
+    if ctx.message.channel.id == IDChannelSpawner:
         newmessage = await functions.spawnmob(ctx)
         await newmessage.add_reaction("<:" + NameEmote + ":" + str(IDEmote) + ">")
     return
