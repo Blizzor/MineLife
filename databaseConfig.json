@@ -1,0 +1,141 @@
+{
+  "tables": [
+    {
+      "name": "mobs",
+      "columns": [
+        {
+          "name": "id",
+          "type": "INT",
+          "additional": "AUTO_INCREMENT PRIMARY KEY"
+        },
+        {
+          "name": "mobName",
+          "type": "TINYTEXT",
+          "additional": ""
+        },
+        {
+          "name": "hp",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "hpFactor",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "dmg",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "dmgfactor",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "def",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "defFactor",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "evasion",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "evasionFactor",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "aim",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "aimFactor",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "xp",
+          "type": "DOUBLE",
+          "additional": ""
+        },
+        {
+          "name": "xpFactor",
+          "type": "DOUBLE",
+          "additional": ""
+        }
+      ],
+      "defaultValues": [
+        {
+          "mobName": "Zombie",
+          "hp": 20.0,
+          "hpFactor": 1.1,
+          "dmg": 1.0,
+          "dmgFactor": 1.1,
+          "def": 1.0,
+          "defFactor": 1.1,
+          "evasion": 1.0,
+          "evasionFactor": 1.1,
+          "aim": 1.0,
+          "aimFactor": 1.1,
+          "xp": 5.0,
+          "xpFactor": 1.1
+        },
+        {
+          "mobName": "Creeper",
+          "hp": 18.0,
+          "hpFactor": 1.1,
+          "dmg": 3.0,
+          "dmgFactor": 1.1,
+          "def": 1.0,
+          "defFactor": 1.1,
+          "evasion": 1.0,
+          "evasionFactor": 1.1,
+          "aim": 1.0,
+          "aimFactor": 1.1,
+          "xp": 5.0,
+          "xpFactor": 1.1
+        },
+        {
+          "mobName": "Skeleton",
+          "hp": 20.0,
+          "hpFactor": 1.1,
+          "dmg": 1.0,
+          "dmgFactor": 1.1,
+          "def": 1.0,
+          "defFactor": 1.1,
+          "evasion": 1.0,
+          "evasionFactor": 1.1,
+          "aim": 1.0,
+          "aimFactor": 1.1,
+          "xp": 5.0,
+          "xpFactor": 1.1
+        },
+        {
+          "mobName": "Enderman",
+          "hp": 30.0,
+          "hpFactor": 1.1,
+          "dmg": 1.0,
+          "dmgFactor": 1.1,
+          "def": 1.0,
+          "defFactor": 1.1,
+          "evasion": 1.0,
+          "evasionFactor": 1.1,
+          "aim": 1.0,
+          "aimFactor": 1.1,
+          "xp": 10.0,
+          "xpFactor": 1.1
+        }
+      ]
+    }
+  ]
+}

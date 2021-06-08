@@ -5,7 +5,7 @@ import mysql.connector
 from discord.ext import commands
 from discord.utils import get
 from modules import functions
-from modules import mydatabase
+from modules import database
 from modules import mobs
 from modules import init
 
@@ -41,9 +41,9 @@ async def test1(ctx, arg=None):
         await newmessage.add_reaction("<:" + NameEmote + ":" + str(IDEmote) + ">")
     return
 
-@bot.command(aliases=["syncdatabase"])
-async def syncdb(ctx, arg=None):
-    await mydatabase.installdb()
+@bot.command(aliases=["resetDatabase"])
+async def resetDb(ctx, arg=None):
+    await database.resetDb()
     return
 
 bot.run(token)
