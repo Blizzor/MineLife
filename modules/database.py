@@ -1,12 +1,13 @@
 import mysql.connector
 import json
+from modules import init
 
 async def resetDatabase(db):
 
     try:
         cursor = db.cursor()
 
-        for table in dbConfig["tables"]:
+        for table in init.dbConfig["tables"]:
             sql = f"CREATE TABLE {table['name']} ("
             sql += ', '.join(f"{column['name']} {column['type']} {column['additional']}" for column in table["columns"])
             sql += ')'
