@@ -1,4 +1,5 @@
 {
+  "createOnLoad": true,
   "tables": [
     {
       "name": "mobs",

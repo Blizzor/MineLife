@@ -20,6 +20,8 @@ IDChannelSpawner = init.configs["IDChannelSpawner"]
 IDEmote = init.configs["IDEmote"]
 NameEmote = init.configs["NameEmote"]
 
+database.createOnLoad(init.mydb)
+
 bot = commands.Bot(command_prefix='!', case_insensitive=True, help_command=None, intents=intents)
 
 @bot.event
