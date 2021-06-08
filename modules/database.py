@@ -19,7 +19,7 @@ async def resetDatabase(db):
                 columns = [column["name"] for column in table["columns"]]
                 sql += ', '.join(columns)
                 sql += ") VALUES ("
-                sql += ', '.join(['?' for column in columns])
+                sql += ', '.join(['%s' for column in columns])
                 sql += ")"
 
         db.commit()
