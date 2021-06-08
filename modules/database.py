@@ -22,6 +22,9 @@ async def resetDatabase(db):
                 sql += ', '.join(['%s' for column in columns])
                 sql += ")"
 
+                val = tuple([defaults[columnName] for columnName in columns])
+                cursor.execute(sql,val)
+
         db.commit()
     except:
         db.rollback()
