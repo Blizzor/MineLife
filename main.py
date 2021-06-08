@@ -41,9 +41,15 @@ async def test1(ctx, arg=None):
         await newmessage.add_reaction("<:" + NameEmote + ":" + str(IDEmote) + ">")
     return
 
+<<<<<<< Updated upstream
 @bot.command(aliases=["resetDatabase"])
 async def resetDb(ctx, arg=None):
     await database.resetDb()
+=======
+@bot.command(aliases=["resetdatabase"])
+async def resetdb(ctx, arg=None):
+    await database.resetDatabase()
+>>>>>>> Stashed changes
     return
 
 bot.run(token)

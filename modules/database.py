@@ -1,6 +1,7 @@
 import mysql.connector
 import json
 
+<<<<<<< Updated upstream
 with open('config/config.json') as json_file:
     jsonstructure = json.load(json_file)
     for p in jsonstructure['discord']:
@@ -40,3 +41,28 @@ async def resetDatabase():
             sql += ")"
 
     
+=======
+async def resetDatabase(db):
+
+    try:
+        cursor = db.cursor()
+
+        for table in dbConfig["tables"]:
+            sql = f"CREATE TABLE {table['name']} ("
+            sql += ', '.join(f"{column['name']} {column['type']} {column['additional']}" for column in table["columns"])
+            sql += ')'
+
+            cursor.execute(sql)
+
+            for defaults in table["defaultValues"]:
+                sql = f"INSERT INTO {table["name"]} ("
+                columns = [column["name"] for column in table["columns"]]
+                sql += ', '.join(columns)
+                sql += ") VALUES ("
+                sql += ', '.join(['?' for column in columns])
+                sql += ")"
+
+        db.commit()
+    except:
+        db.rollback()
+>>>>>>> Stashed changes
