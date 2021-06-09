@@ -13,17 +13,16 @@ async def resetDatabase(db):
 
         createTables(db, commit=False)
 
-        for table in init.tables["tables"]:
-            for defaults in table["defaultValues"]:
-                sql = f"INSERT INTO {table["name"]} ("
-                columns = [column["name"] for column in table["columns"]]
-                sql += ', '.join(columns)
-                sql += ") VALUES ("
-                sql += ', '.join(['%s' for column in columns])
-                sql += ")"
+        for mob in init.mobs["mobs"]:
+            sql = f"INSERT INTO {mob['database']['table']} ("
+            columns = [column for column in mob['database']['defaultValues'].keys()]
+            sql += ', '.join(columns)
+            sql += ") VALUES ("
+            sql += ', '.join(['%s' for column in columns])
+            sql += ")"
 
-                val = tuple([defaults[columnName] for columnName in columns])
-                cursor.execute(sql,val)
+            val = tuple([mob['database']['defaultValues'][column] for column in columns])
+            cursor.execute(sql,val)
 
         db.commit()
     except:
