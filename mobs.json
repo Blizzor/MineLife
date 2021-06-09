@@ -2,70 +2,82 @@
   "mobs": [
     {
       "mobName": "Zombie",
-      "defaultValues": [
-        "hp": 20.0,
-        "hpFactor": 1.1,
-        "dmg": 1.0,
-        "dmgFactor": 1.1,
-        "def": 1.0,
-        "defFactor": 1.1,
-        "evasion": 1.0,
-        "evasionFactor": 1.1,
-        "aim": 1.0,
-        "aimFactor": 1.1,
-        "xp": 5.0,
-        "xpFactor": 1.1
+      "database": [
+        "table": "mobs",
+        "defaultValues": [
+          "hp": 20.0,
+          "hpFactor": 1.1,
+          "dmg": 1.0,
+          "dmgFactor": 1.1,
+          "def": 1.0,
+          "defFactor": 1.1,
+          "evasion": 1.0,
+          "evasionFactor": 1.1,
+          "aim": 1.0,
+          "aimFactor": 1.1,
+          "xp": 5.0,
+          "xpFactor": 1.1
+        ]
       ]
     },
     {
-      "mobName": "Creeper",
-      "defaultValues": [
-        "hp": 18.0,
-        "hpFactor": 1.1,
-        "dmg": 3.0,
-        "dmgFactor": 1.1,
-        "def": 1.0,
-        "defFactor": 1.1,
-        "evasion": 1.0,
-        "evasionFactor": 1.1,
-        "aim": 1.0,
-        "aimFactor": 1.1,
-        "xp": 5.0,
-        "xpFactor": 1.1
+      "mobName": "Creeper",,
+      "database": [
+        "table": "mobs",
+        "defaultValues": [
+          "hp": 18.0,
+          "hpFactor": 1.1,
+          "dmg": 3.0,
+          "dmgFactor": 1.1,
+          "def": 1.0,
+          "defFactor": 1.1,
+          "evasion": 1.0,
+          "evasionFactor": 1.1,
+          "aim": 1.0,
+          "aimFactor": 1.1,
+          "xp": 5.0,
+          "xpFactor": 1.1
+        ]
       ]
     },
     {
-      "mobName": "Skeleton",
-      "defaultValues": [
-        "hp": 20.0,
-        "hpFactor": 1.1,
-        "dmg": 1.0,
-        "dmgFactor": 1.1,
-        "def": 1.0,
-        "defFactor": 1.1,
-        "evasion": 1.0,
-        "evasionFactor": 1.1,
-        "aim": 1.0,
-        "aimFactor": 1.1,
-        "xp": 5.0,
-        "xpFactor": 1.1
+      "mobName": "Skeleton",,
+      "database": [
+        "table": "mobs",
+        "defaultValues": [
+          "hp": 20.0,
+          "hpFactor": 1.1,
+          "dmg": 1.0,
+          "dmgFactor": 1.1,
+          "def": 1.0,
+          "defFactor": 1.1,
+          "evasion": 1.0,
+          "evasionFactor": 1.1,
+          "aim": 1.0,
+          "aimFactor": 1.1,
+          "xp": 5.0,
+          "xpFactor": 1.1
+        ]
       ]
     },
     {
-      "mobName": "Enderman",
-      "defaultValues": [
-        "hp": 30.0,
-        "hpFactor": 1.1,
-        "dmg": 1.0,
-        "dmgFactor": 1.1,
-        "def": 1.0,
-        "defFactor": 1.1,
-        "evasion": 1.0,
-        "evasionFactor": 1.1,
-        "aim": 1.0,
-        "aimFactor": 1.1,
-        "xp": 10.0,
-        "xpFactor": 1.1
+      "mobName": "Enderman",,
+      "database": [
+        "table": "mobs",
+        "defaultValues": [
+          "hp": 30.0,
+          "hpFactor": 1.1,
+          "dmg": 1.0,
+          "dmgFactor": 1.1,
+          "def": 1.0,
+          "defFactor": 1.1,
+          "evasion": 1.0,
+          "evasionFactor": 1.1,
+          "aim": 1.0,
+          "aimFactor": 1.1,
+          "xp": 10.0,
+          "xpFactor": 1.1
+        ]
       ]
     }
   ]
