@@ -3,7 +3,7 @@ import json
 from modules import init
 
 async def createOnLoad(db):
-    if init.dbConfig["createOnLoad"] == True:
+    if init.tables["createOnLoad"] == True:
         createTables(db)
 
 async def resetDatabase(db):
@@ -13,7 +13,7 @@ async def resetDatabase(db):
 
         createTables(db, commit=False)
 
-        for table in init.dbConfig["tables"]:
+        for table in init.tables["tables"]:
             for defaults in table["defaultValues"]:
                 sql = f"INSERT INTO {table["name"]} ("
                 columns = [column["name"] for column in table["columns"]]
@@ -33,7 +33,7 @@ async def createTables(db, commit=True):
     try:
         cursor = db.cursor()
 
-        for table in init.dbConfig["tables"]:
+        for table in init.tables["tables"]:
             sql = f"CREATE TABLE {table['name']} ("
             sql += ', '.join(f"{column['name']} {column['type']} {column['additional']}" for column in table["columns"])
             sql += ')'
