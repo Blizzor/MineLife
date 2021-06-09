@@ -56,7 +56,7 @@ async def on_attack(payload,bot):
 
                 color = int(color, 0)
 
-                surl = "https://blizzor.de/MineLife/" + embed.title + ".png" 
+                surl = "https://blizzor.de/MineLife/" + embed.title + ".png"
 
                 embed = discord.Embed(title = embed.title, color = color)
                 embed.set_thumbnail(url=surl)
@@ -80,11 +80,11 @@ async def on_death(message):
     return
 
 async def dbcommit(sqlcommand):
-    mydb = init.getdb()
+    mydb = init.mydb
     if(not mydb.is_connected()):
         print("Verbindung zur DB verloren...wird reconnected")
         mydb.reconnect(attempts=3, delay=5)
-        mydb = init.getdb()
+        mydb = init.mydb
     mycursor = mydb.cursor()
     mycursor.execute(sqlcommand)
     return mycursor.fetchall()
