@@ -4,12 +4,12 @@ from random import randrange
 from modules import init
 
 async def spawnmob(ctx):
-    number = randrange(1,5)
-    sql = "SELECT * FROM mobs WHERE id ='" + str(number) + "'"
-    myresult = await dbcommit(sql)
-    mob = myresult[0]
-    mobname = mob[1]
-    mobhp = mob[2]
+    sql = "SELECT mobName, hp FROM mobs"
+    results = await dbcommit(sql)
+    num = randrange(0,len(results))
+    mob = results[num]
+    mobname = mob[0]
+    mobhp = mob[1]
 
     embed = discord.Embed(title=mobname, color=0x00ff00)
     embed.set_thumbnail(url="https://blizzor.de/MineLife/"+ mobname +".png")
@@ -43,12 +43,16 @@ async def on_attack(payload,bot):
                     colory = 0
 
                 if(colorx != 0):
-                    colorx = str(hex(colorx)).removeprefix("0x")
+                    colorx = str(hex(colorx))
+                    if colorx.startswith("0x"):
+                        colorx = colorx[2:]
                 else:
                     colorx = "00"
 
                 if(colory != 0):
-                    colory = str(hex(colory)).removeprefix("0x")
+                    colory = str(hex(colory))
+                    if colory.startswith("0x"):
+                        colory = colory[2:]
                 else:
                     colory = "00"
 

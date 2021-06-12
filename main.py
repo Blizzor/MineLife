@@ -20,12 +20,11 @@ IDChannelSpawner = init.configs["IDChannelSpawner"]
 IDEmote = init.configs["IDEmote"]
 NameEmote = init.configs["NameEmote"]
 
-database.createOnLoad(init.mydb)
-
 bot = commands.Bot(command_prefix='!', case_insensitive=True, help_command=None, intents=intents)
 
 @bot.event
 async def on_ready():
+    await database.createOnLoad(init.mydb)
     print('Bot wurde gestartet')
     return
 
@@ -45,7 +44,7 @@ async def test1(ctx, arg=None):
 
 @bot.command(aliases=["resetdatabase"])
 async def resetdb(ctx, arg=None):
-    await database.resetDatabase()
+    await database.resetDatabase(init.mydb)
     return
 
 bot.run(token)

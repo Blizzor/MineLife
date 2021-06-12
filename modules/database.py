@@ -4,14 +4,18 @@ from modules import init
 
 async def createOnLoad(db):
     if init.tables["createOnLoad"] == True:
-        createTables(db)
+        await createTables(db)
 
 async def resetDatabase(db):
 
     try:
         cursor = db.cursor()
 
-        createTables(db, commit=False)
+        await createTables(db, commit=False)
+
+        for table in init.tables["tables"]:
+            sql = f"DELETE FROM {table['name']}"
+            cursor.execute(sql)
 
         for mob in init.mobs["mobs"]:
             sql = f"INSERT INTO {mob['database']['table']} ("
