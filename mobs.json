@@ -2,9 +2,9 @@
   "mobs": [
     {
       "mobName": "Zombie",
-      "database": [
+      "database": {
         "table": "mobs",
-        "defaultValues": [
+        "defaultValues": {
           "hp": 20.0,
           "hpFactor": 1.1,
           "dmg": 1.0,
@@ -17,14 +17,14 @@
           "aimFactor": 1.1,
           "xp": 5.0,
           "xpFactor": 1.1
-        ]
-      ]
+        }
+      }
     },
     {
-      "mobName": "Creeper",,
-      "database": [
+      "mobName": "Creeper",
+      "database": {
         "table": "mobs",
-        "defaultValues": [
+        "defaultValues": {
           "hp": 18.0,
           "hpFactor": 1.1,
           "dmg": 3.0,
@@ -37,14 +37,14 @@
           "aimFactor": 1.1,
           "xp": 5.0,
           "xpFactor": 1.1
-        ]
-      ]
+        }
+      }
     },
     {
-      "mobName": "Skeleton",,
-      "database": [
+      "mobName": "Skeleton",
+      "database": {
         "table": "mobs",
-        "defaultValues": [
+        "defaultValues": {
           "hp": 20.0,
           "hpFactor": 1.1,
           "dmg": 1.0,
@@ -57,14 +57,14 @@
           "aimFactor": 1.1,
           "xp": 5.0,
           "xpFactor": 1.1
-        ]
-      ]
+        }
+      }
     },
     {
-      "mobName": "Enderman",,
-      "database": [
+      "mobName": "Enderman",
+      "database": {
         "table": "mobs",
-        "defaultValues": [
+        "defaultValues": {
           "hp": 30.0,
           "hpFactor": 1.1,
           "dmg": 1.0,
@@ -77,8 +77,8 @@
           "aimFactor": 1.1,
           "xp": 10.0,
           "xpFactor": 1.1
-        ]
-      ]
+        }
+      }
     }
   ]
 }
